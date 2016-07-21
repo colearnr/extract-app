@@ -1,6 +1,6 @@
 {
   "name": "colearnr-extract-app",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha1",
   "description": "CoLearnr app to extract more information about learnbits",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/colearnr/extract-app#readme",
   "dependencies": {
-    "colearnr-sdk": "^1.0.0",
+    "colearnr-sdk": "1.0.0-alpha1",
     "lodash": "^4.13.1",
     "request": "^2.73.0",
     "unembed": "^1.0.7",
