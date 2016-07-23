@@ -1,4 +1,4 @@
-const ExtractLib = require('../index')
+const ExtractLib = require('../index').Extract
 const vows = require('vows')
 const assert = require('assert')
 
@@ -168,5 +168,63 @@ Raised to acting air commodore in 1946, McLachlan served as senior air staff off
       assert.ok(obj)
     }
   },
+
+  'Check if we can use sentiment api': {
+    topic: function () {
+      let text = `
+      A film that begins with the everyday lives of naval personnel in San Diego and ends with scenes so true and heartbreaking that tears welled up in my eyes both times I saw the film .
+Joan and Philip 's repetitive arguments , schemes and treachery
+sounds like another clever if pointless excursion into the abyss
+
+badly edited , often awkwardly directed and suffers from the addition of a wholly unnecessary pre-credit sequence designed to give some of the characters a back story
+      the friendship
+      Weighted down with slow , uninvolving storytelling and flat acting .
+
+When compared to the usual , more somber festival entries , Davis ' highly personal brand of romantic comedy is a tart , smart breath of fresh air that stands out from the pack even if the picture itself is somewhat problematic
+The script is a disaster , with cloying messages and irksome characters .
+is a shame that more wo n't get an opportunity to embrace small , sweet  Evelyn . '
+      a china shop , a provocateur crashing into ideas and special-interest groups as he slaps together his own brand of liberalism
+
+      `
+      NlpAnalysis.sentiment(text, this.callback)
+    },
+    'check': function (err, obj) {
+      assert.equal(err, null)
+      assert.ok(obj)
+    }
+  },
+
+  'Check if we can use readability api': {
+    topic: function () {
+      let text = `
+      Early career
+
+Hoy joined his first cycling club, Dunedin C.C., in 1990 aged 14, and began concentrating on track cycling in 1993, when he joined the City of Edinburgh Racing Club.[7]
+
+Hoy won silver in Berlin, at the 1999 UCI Track Cycling World Championships in the team sprint, riding at man one, Craig MacLean at 2 and Jason Quealley at 3. Regular team mates in the team sprint over the years have included Craig Maclean, Ross Edgar, Jamie Staff, Jason Queally, Matthew Crampton and Jason Kenny.
+2000 Sydney Olympics
+
+Following Jason Queally's Gold Medal in the Kilo TT, Chris joined with him and Craig MacLean to win his first Olympic Medal, a Silver in the Team Sprint or "Olympic Sprint" as it was then called. They were beaten by an excellent French team but the two medals won for GB was the start of the renaissance of British Cycling which has led on to remarkable results over his career.
+2004 Olympics: Athens
+
+Chris arrived in Athens in the form of his life. His main event was the Kilo Time Trial and the race produced what is probably the best ever Kilo competition. He was ranked No 1 and was last man off. The sea level World Record was broken four times as he sat in the track centre waiting for his start. He had been involved in an accident in the athlete's village just a few days prior to competition where he came off his bike in front of a village bus, narrowly avoiding serious injury. As he came out of the starting gate, his scarred arms and legs showed how close he was to not competing. The previous rider was the great Arnaud Tournant who set the fastest ever sea-level kilo. Chris came next and, cheered on by thousands of loyal British fans, he bettered the time on each lap, setting a new sea-level World and Olympic Record of 1.00.711. This was the first of his Olympic Gold medals and added to the Silver, won in the Team Sprint in Sydney in 2000.
+Post-2004 Olympics
+
+Following the decision to remove the Kilo from the Olympic programme after the 2004 games, Hoy sought to develop in other events.[8] The first of these was the keirin. This event involves between six and eight riders following a small motorbike (the Derny) around the 250m track for 5.5 laps, as the bike slowly builds up the speed. The bike pulls off with 2.5 laps to go and the riders race for the line. Hoy had previously competed at the keirin in various events but one of his first major successes was at the Manchester round of the World Cup Classics Series in 2007, shortly before the World Championships, where he also won, ahead of his team mate Ross Edgar.[citation needed]
+
+This showed that Hoy was developing from just a pure power sprinter, in events like the Kilo and Team Sprint, into also being one of the best in the world at more tactical sprinting events such as the keirin[9] and the individual sprint.
+2007 world record attempt
+
+On 12 May 2007, Hoy attempted the world record for the kilometre. He fell 0.005 seconds short, clocking 58.880. He set a record for the 500m flying start at 24.758 seconds, over a second less than the 25.850 set by Arnaud Duble. Hoy set the sea-level kilometre record of 1 minute 0.711 seconds by winning the Olympics in Athens in 2004. The outright record of 58.875 seconds is held by Arnaud Tournant (France), set during 2001 at altitude in La Paz, Bolivia, where Hoy also attempted to break the record. At the time, only 3 sub-60sec kilos had ever been ridden; Hoy recorded two of these over two days in La Paz.[10]
+
+Hoy's main achievement is his development in the individual sprint event considered to be the blue riband event of track cycling.[11] Kilo riders like Hoy have historically not fared as well at this event, as they were less experienced in the tactical elements required for the sprint. Previously, Hoy had competed in the sprint at various World Cup events and Revolution meetings in Manchester, but it was not one of his main events and he did not compete in it at the World Championships or the Olympics. In the semi finals Hoy defeated Italian veteran Roberto Chiappa 2–0, to set up a meeting in the final against France's Kevin Sireau. Sireau was the World Cup Classics points winner for the season and had defeated Hoy 2–0 in their previous meeting only a few weeks earlier. However, with the vocal Manchester crowd behind him Hoy was not to be denied victory and he completed the win 2–0, the first British man to win the sprint title in 52 years since Reg Harris.[12]
+      `
+      NlpAnalysis.readability(text, this.callback)
+    },
+    'check': function (err, obj) {
+      assert.equal(err, null)
+      assert.ok(obj)
+    }
+  }
 })
   .export(module)

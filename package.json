@@ -34,6 +34,7 @@
     "retext-keywords": "^2.0.2",
     "retext-overuse": "^1.0.2",
     "retext-profanities": "^3.0.0",
+    "retext-readability": "^2.0.0",
     "retext-sentiment": "^2.0.1",
     "retext-simplify": "^2.0.0",
     "unembed": "^1.0.7",
