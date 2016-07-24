@@ -161,7 +161,7 @@ Raised to acting air commodore in 1946, McLachlan served as senior air staff off
       crap
       bloody
       `
-      NlpAnalysis.purifyText(text, this.callback)
+      NlpAnalysis.purifyText(text, text, this.callback)
     },
     'check': function (err, obj) {
       assert.equal(err, null)
