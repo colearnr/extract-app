@@ -57,17 +57,6 @@ suite.addBatch({
     }
   },
 
-  'Check if we can parse ft': {
-    topic: function () {
-      ExtractApp.processUrl('http://www.ft.com/cms/s/0/50fe03c8-525a-11e6-befd-2fc0c26b3c60.html', false, this.callback)
-    },
-    'check': function (err, obj) {
-      assert.equal(err, null)
-      assert.ok(obj)
-      assert.ok(obj.text)
-      assert.ok(obj.title)
-    }
-  },
 
   'Check if we can parse wiki page': {
     topic: function () {
@@ -235,6 +224,18 @@ Hoy's main achievement is his development in the individual sprint event conside
     'check': function (err, obj) {
       assert.equal(err, null)
       assert.ok(obj)
+    }
+  }
+}).addBatch({
+  'Check if we can parse ft': {
+    topic: function () {
+      ExtractApp.processUrl('http://www.ft.com/cms/s/0/50fe03c8-525a-11e6-befd-2fc0c26b3c60.html', false, this.callback)
+    },
+    'check': function (err, obj) {
+      assert.equal(err, null)
+      assert.ok(obj)
+      assert.ok(obj.text)
+      assert.ok(obj.title)
     }
   }
 })
