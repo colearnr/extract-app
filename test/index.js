@@ -39,7 +39,6 @@ suite.addBatch({
       assert.equal(err, null)
       assert.ok(obj)
       assert.equal(obj.publisher, null)
-      assert.ok(obj.body)
       assert.ok(obj.title)
     }
   },
