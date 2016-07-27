@@ -35,7 +35,7 @@
     "retext-overuse": "^1.0.2",
     "retext-profanities": "^3.0.0",
     "retext-readability": "^2.0.0",
-    "retext-sentiment": "git://github.com/colearnr/retext-sentiment#2.0.3",
+    "retext-sentiment": "git://github.com/colearnr/retext-sentiment#2.0.4",
     "retext-simplify": "^2.0.0",
     "sanitize-html": "^1.13.0",
     "unembed": "^1.0.7",
