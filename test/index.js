@@ -246,7 +246,7 @@ Hoy's main achievement is his development in the individual sprint event conside
     'check': function (err, obj) {
       assert.equal(err, null)
       assert.ok(obj)
-      assert.equal(obj, 'sky blue apple abra cadabra elephant red')
+      assert.equal(obj, ' sky   blue apple abra cadabra    elephant  red')
     }
   }
 }).addBatch({
