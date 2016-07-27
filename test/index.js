@@ -237,5 +237,45 @@ Hoy's main achievement is his development in the individual sprint event conside
       assert.ok(obj.title)
     }
   }
+}).addBatch({
+  'Filler words test': {
+    topic: function () {
+      let text = 'The sky is a blue apple abra cadabra blah blah an elephant is red'
+      this.callback(null, NlpAnalysis.removeFillers(text))
+    },
+    'check': function (err, obj) {
+      assert.equal(err, null)
+      assert.ok(obj)
+      assert.equal(obj, 'sky blue apple abra cadabra elephant red')
+    }
+  }
+}).addBatch({
+  'More sentiment tests': {
+    topic: function () {
+      let text = `Help me. I cant understand this topic.'
+                  Great work team. Keep it up.
+                  This is not a good work is it?
+                  This is not a good work.`
+      NlpAnalysis.sentiment(text, this.callback)
+    },
+    'check': function (err, obj) {
+      let paraPolarity = [-1, 0, -3, -3]
+      let paraValence = ['negative',
+                         'neutral',
+                         'negative',
+                         'negative'
+                        ]
+      assert.equal(err, null)
+      assert.ok(obj)
+      let index = 0
+      obj.paragraphScore.forEach((p, i) => {
+        if (p) {
+          assert.equal(p.polarity, paraPolarity[index])
+          assert.equal(p.valence, paraValence[index])
+          index++
+        }
+      })
+    }
+  }
 })
   .export(module)
