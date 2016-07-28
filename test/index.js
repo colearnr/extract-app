@@ -159,11 +159,11 @@ Raised to acting air commodore in 1946, McLachlan served as senior air staff off
     topic: function () {
       let text = `
       anal shit hold man
-      anus
-      arse
+      anus.
+      arse.
       ass just pain in my ass
       ballsack
-      balls
+      balls.
       bastard
       bitch
       biatch
@@ -183,6 +183,8 @@ Raised to acting air commodore in 1946, McLachlan served as senior air staff off
       coon
       crap
       bloody
+      Hello world
+      This is a good asset butter
       `
       NlpAnalysis.purifyText(text, text, this.callback)
     },
