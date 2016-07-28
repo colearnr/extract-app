@@ -80,7 +80,6 @@ suite.addBatch({
     }
   },
 
-
   'Check if we can parse wiki page': {
     topic: function () {
       ExtractApp.processUrl('https://en.wikipedia.org/wiki/Apple', false, this.callback)
@@ -91,6 +90,7 @@ suite.addBatch({
       assert.equal(obj.lang, 'en')
       assert.ok(obj.text)
       assert.ok(obj.title)
+      assert.ok(obj.img_url)
     }
   },
 
@@ -285,10 +285,10 @@ Hoy's main achievement is his development in the individual sprint event conside
     'check': function (err, obj) {
       let paraPolarity = [-1, 0, -3, -3]
       let paraValence = ['negative',
-                         'neutral',
-                         'negative',
-                         'negative'
-                        ]
+        'neutral',
+        'negative',
+        'negative'
+      ]
       assert.equal(err, null)
       assert.ok(obj)
       let index = 0
