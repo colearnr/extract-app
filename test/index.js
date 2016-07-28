@@ -43,6 +43,30 @@ suite.addBatch({
     }
   },
 
+  'Check if we can parse youtube': {
+    topic: function () {
+      ExtractApp.processUrl('https://youtu.be/C0DPdy98e4c', false, this.callback)
+    },
+    'check': function (err, obj) {
+      assert.equal(err, null)
+      assert.ok(obj)
+      assert.ok(obj.title)
+      assert.ok(obj.img_url)
+    }
+  },
+
+  'Check if we can parse vimeo': {
+    topic: function () {
+      ExtractApp.processUrl('https://vimeo.com/176329517', false, this.callback)
+    },
+    'check': function (err, obj) {
+      assert.equal(err, null)
+      assert.ok(obj)
+      assert.ok(obj.title)
+      assert.ok(obj.img_url)
+    }
+  },
+
   'Check if we can parse bbc news': {
     topic: function () {
       ExtractApp.processUrl('http://www.bbc.co.uk/news/uk-36833042', false, this.callback)
